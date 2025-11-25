@@ -1,0 +1,21 @@
+name: CI Monitoramento
+
+on:
+  push:
+    branches: [ "main", "principal" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checar código
+      uses: actions/checkout@v3
+
+    - name: Instalar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Rodar Script
+      run: python monitoramento.py
